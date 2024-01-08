@@ -28,6 +28,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
         
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -46,14 +48,27 @@ public class CsIa extends javax.swing.JFrame implements ActionListener
     JButton loginButton = new JButton("LOGIN");
     JButton adminButton = new JButton("admin?");
    
-    
+    public void openHomePage(String userName) {
+        // Open the home page with the logged-in username
+        homePage homePage = new homePage(userName);
+        homePage.setVisible(true);
+        this.dispose(); 
+    }
     
     //contructor class
-    CsIa() 
+    public CsIa() 
     {
         layoutManager();
         addActionEvent();
         secComponents();
+        
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Ensure the application is terminated when the window is closed
+                System.exit(0);
+            }
+        });
     }
     
     public void layoutManager()
@@ -138,16 +153,18 @@ public class CsIa extends javax.swing.JFrame implements ActionListener
         passwordField.setMinimumSize(new Dimension(200, 30));
         gbc.weightx = 1.0;
 
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 2;
         gbc.gridwidth = 2;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        //gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
         panel.add(loginButton, gbc);
         
         gbc.gridx = 0;
-        gbc.gridy = 3;
+        gbc.gridy = 2;
         gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        //gbc.fill = GridBagConstraints.HORIZONTAL;
+        adminButton.setMinimumSize(new Dimension(20, 30));
         panel.add(adminButton, gbc);
 
         // Customize UI appearance
@@ -206,8 +223,7 @@ public class CsIa extends javax.swing.JFrame implements ActionListener
                     {
                         dispose();
                         JOptionPane.showMessageDialog(loginButton, "You have successfully logged in");
-                        
-                        
+                        openHomePage(userName);
                     } 
                     
                     else 
@@ -233,10 +249,6 @@ public class CsIa extends javax.swing.JFrame implements ActionListener
     
     }
     
-    public void openHomePage()
-    {
-        
-    }
 
 
 }
