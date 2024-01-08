@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
         
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -180,6 +182,14 @@ public class homePage extends JFrame implements ActionListener
     {
         initComponents(username);
         loadUserData(username);
+        
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Ensure the application is terminated when the window is closed
+                System.exit(0);
+            }
+        });
     }
 
     @Override

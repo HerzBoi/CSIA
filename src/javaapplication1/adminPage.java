@@ -28,6 +28,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.lang.invoke.MethodHandles;
         
 import java.sql.Connection;
@@ -52,6 +54,14 @@ public class adminPage extends JFrame implements ActionListener
         // Constructor...
         adminComponents();
         addActionEvent();
+        
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Ensure the application is terminated when the window is closed
+                System.exit(0);
+            }
+        });
     }
     
     public void layoutManager()
