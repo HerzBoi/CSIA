@@ -49,6 +49,9 @@ public class adminPage extends JFrame implements ActionListener
     private JPasswordField passwordField = new JPasswordField();
     private JButton backButton = new JButton("Back");
     
+    private JButton timetableButton = new JButton("Timetable");
+    private JButton attendanceButton = new JButton("Attendance");
+    
     public adminPage() 
     {
         // Constructor...
@@ -128,11 +131,21 @@ public class adminPage extends JFrame implements ActionListener
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(addUserButton, gbc);
         
-        gbc.gridx = 2;
-        gbc.gridy = 4;
+        gbc.gridx = 0;
+        gbc.gridy = 3;
         gbc.gridwidth = 1;
         //gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(backButton, gbc);
+        
+         gbc.gridx = 2;
+        gbc.gridy = 5;
+        gbc.gridwidth = 1;
+        panel.add(timetableButton, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy = 6;
+        gbc.gridwidth = 1;
+        panel.add(attendanceButton, gbc);
         
         // Customize UI appearance
         nameLabel.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -143,12 +156,20 @@ public class adminPage extends JFrame implements ActionListener
         passwordField.setFont(new Font("Arial", Font.PLAIN, 14));
         addUserButton.setFont(new Font("Arial", Font.BOLD, 14));
         backButton.setFont(new Font("Arial", Font.BOLD, 14));
+        timetableButton.setFont(new Font("Arial", Font.BOLD, 14));
+        attendanceButton.setFont(new Font("Arial", Font.BOLD, 14));
 
         addUserButton.setBackground(Color.BLUE);
         addUserButton.setForeground(Color.WHITE);
         
         backButton.setBackground(Color.WHITE);
         backButton.setForeground(Color.BLUE);
+        
+        timetableButton.setBackground(Color.GREEN);
+        timetableButton.setForeground(Color.WHITE);
+
+        attendanceButton.setBackground(Color.ORANGE);
+        attendanceButton.setForeground(Color.WHITE);
 
         // Set layout manager for the content pane
         getContentPane().setLayout(new GridBagLayout());
@@ -170,7 +191,15 @@ public class adminPage extends JFrame implements ActionListener
     {
         backButton.addActionListener(event -> 
         { 
-            back();
+            backB();
+        });
+        
+        timetableButton.addActionListener(event -> {
+            openTimetablePage();
+        });
+
+        attendanceButton.addActionListener(event -> {
+            openAttendancePage();
         });
     }
     
@@ -227,12 +256,26 @@ public class adminPage extends JFrame implements ActionListener
 
     }
     
-    public void back()
+    public void backB()
         {
             System.out.println("back button pressed");
             
-            CsIa back = new CsIa();
-            //CsIa.setVisible(true); //ask manali maam
+            CsIa csIa = new CsIa(); 
+            csIa.setVisible(true);
+            setSize(600, 600);
             dispose();
         }
+    
+    public void openTimetablePage() 
+    {
+        timeTable timetablePage = new timeTable();
+        timetablePage.setVisible(true);
+    }
+    
+    public void openAttendancePage() 
+    {
+        attendenceT opAt = new attendenceT();
+        opAt.setVisible(true);
+    }
+    
 }

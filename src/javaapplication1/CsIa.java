@@ -64,8 +64,8 @@ public class CsIa extends javax.swing.JFrame implements ActionListener
         
         addWindowListener(new WindowAdapter() {
             @Override
-            public void windowClosing(WindowEvent e) {
-                // Ensure the application is terminated when the window is closed
+            public void windowClosing(WindowEvent e) 
+            {
                 System.exit(0);
             }
         });
