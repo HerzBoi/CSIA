@@ -2,38 +2,20 @@ package javaapplication1;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import java.sql.ResultSet;
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import javax.swing.JTable;
-import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.lang.invoke.MethodHandles;
-        
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class adminPage extends JFrame implements ActionListener
 {
@@ -137,7 +119,7 @@ public class adminPage extends JFrame implements ActionListener
         //gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(backButton, gbc);
         
-         gbc.gridx = 2;
+        gbc.gridx = 2;
         gbc.gridy = 5;
         gbc.gridwidth = 1;
         panel.add(timetableButton, gbc);

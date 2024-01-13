@@ -40,7 +40,7 @@ public class homePage extends JFrame implements ActionListener
 
     private CardLayout cardLayout = new CardLayout();
     private JPanel mainPanel = new JPanel(cardLayout);
-   
+
     private void initComponents(String username) {
         setTitle("Home Page");
         setSize(600, 400);
@@ -76,7 +76,8 @@ public class homePage extends JFrame implements ActionListener
         
         
         
-        /*JPanel panel = new JPanel(new GridBagLayout());
+        /*
+        JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
 
@@ -270,7 +271,7 @@ public class homePage extends JFrame implements ActionListener
             JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
         }
     }
-   
+
     private void updatePassword(String newPassword) {
         // Database connection parameters
         String url = "jdbc:mysql://localhost:3306/cssoftware?zeroDateTimeBehavior=CONVERT_TO_NULL";
